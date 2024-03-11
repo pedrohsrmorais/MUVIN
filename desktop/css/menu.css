@@ -1,0 +1,49 @@
+/* SeuComponente.css */
+.menu {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 20px;
+  justify-content: space-between;
+ 
+}
+
+#imgheader {
+  width: 400px; /* Ajuste conforme necessário */
+  height: auto;
+  margin-right: 40px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  margin-right: 44px;
+}
+button {
+  height: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+  background: linear-gradient(to bottom, #aaa517 30%, #c3bc1b 70%);
+  background-clip: text;
+  color: transparent;
+  font-size: 26px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px; 
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+}
+
+
+button:hover {
+  color: #ffffff; 
+  background-color: #555; 
+}
