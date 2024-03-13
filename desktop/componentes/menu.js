@@ -4,16 +4,16 @@ var menu =
         <img id="imgheader" src="../backend/imagens/Logo.png" alt="Descrição da imagem">
         <ul>
             <li>
-                <button onclick="MenuLoad('home')">Inicio</button>
+                <button onclick="MenuLoad('home')" class="menuButton">Inicio</button>
             </li>
             <li>
-                <button onclick="MenuLoad('catalogo')">Catalogo</button>
+                <button onclick="MenuLoad('catalogo')" class="menuButton" >Catalogo</button>
             </li>
             <li>
-                <button onclick="MenuLoad('about')">Sobre nós</button>
+                <button onclick="MenuLoad('about')" class="menuButton">Sobre nós</button>
             </li>
             <li>
-                <button onclick="MenuLoad('contato')">Contato</button>
+                <button onclick="MenuLoad('contato')" class="menuButton">Contato</button>
             </li>
         </ul>
     </div>
@@ -24,6 +24,7 @@ var root = document.getElementById('root');
 
 rootMenu.innerHTML = menu;
 root.innerHTML = linhaTempo;
+linhaTempoFunction();
 
 
 
@@ -32,6 +33,8 @@ function MenuLoad(page) {
     switch (page) {
         case 'home':
             root.innerHTML = linhaTempo;
+            linhaTempoFunction();
+            
             break;
         case 'catalogo':
             root.innerHTML = catalogo;
@@ -42,8 +45,10 @@ function MenuLoad(page) {
         case 'contato':
             root.innerHTML = contato;
             break;
-        default:
+        default:            
             root.innerHTML = linhaTempo;
+            linhaTempoFunction();
+
             break;
     }
 }

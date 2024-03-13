@@ -7,6 +7,6 @@
 </head>
 <body>
    <h1> Bem vindo ao Muvin mobile</h1>
-   <h2> Página ainda em construção </h2>
+   <h2> Página ainda em construção, para uma melhor experiência por favor utilize um navegador. </h2>
 </body>
 </html>

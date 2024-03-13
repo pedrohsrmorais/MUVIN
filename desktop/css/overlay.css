@@ -1,0 +1,12 @@
+.overlay {
+
+    /* Posição */
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    left: 10%;
+    top: 10%;
+    display: none;
+    
+    background-color: aquamarine;
+  }
