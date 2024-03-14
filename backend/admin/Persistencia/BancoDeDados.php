@@ -1,7 +1,7 @@
 <?php
 require_once(realpath(__DIR__ . "/GerenciadorDeEstruturas.php"));
 require_once(realpath(__DIR__ . "/../Negocio/Entidade.php"));
-define("CAMINHO_IMAGENS", "localhost/MUVIN2/imagens/");
+define("CAMINHO_IMAGENS", "../backend/imagens/");
 
 class BancoDeDados
 {

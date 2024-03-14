@@ -9,11 +9,11 @@ function isDesktop()
 
 if (isDesktop()) {
     // Redirecionar para a página desktop
-    header("Location: desktop/index.php");
+    header("Location: desktop/index.html");
     exit();
 } else {
     // Redirecionar para a página mobile
-    header("Location: mobile/index.php");
+    header("Location: mobile/index.html");
     exit();
 }
 

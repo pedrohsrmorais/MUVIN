@@ -12,10 +12,24 @@ const fetchOverlay = async (id_overlay) => {
 
 function overlay(dataId) {
 
-/*    document.getElementById('overlay').style.display = "block"; */
+
 
     fetchOverlay(dataId).then((data) => {
         console.log(data)
+
+        // Pegando os DOM overlay
+        var overlay = document.getElementById('overlay');
+        var overlayImagem = document.getElementById('overlayImagem');
+        var overlayCloseButton = document.getElementById('overlayCloseButton')
+        var overlayContent = document.getElementById('overlayContent')
+
+        overlayCloseButton.addEventListener( 'click', ()=>{overlay.style.display = "none";})
+        overlay.style.display = "block";
+
+        overlayContent.textContent = JSON.stringify(data);
+        overlayImagem.src = data.urls[0];
+
+
     })
 
 }
