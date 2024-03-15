@@ -1,6 +1,6 @@
 .overlay {
 
-    /* Posição */
+
     position: absolute;
     height: 80%;
     width: 80%;
@@ -8,13 +8,16 @@
     top: 10%;
     display: none;
     
-    border: 2px solid #f8f8f7;
+    border: 2px solid #f7f7f8;
     border-radius: 12px;
     background: linear-gradient(#034f70, #002b3d);
+    overflow-y: scroll;
+
   }
 
-  #overlayImagem{
-    max-width: 60%;
+  .overlayImagem{
+    position: absolute;
+    max-width: 40%;
     max-height: 60%;
     margin-left: 2%;
     margin-top: 2%;
@@ -36,6 +39,18 @@
     cursor: pointer; 
     transition: transform 0.5s ease;
   }
+
   #overlayCloseButton:hover{
     transform: rotate(90deg);
+  }
+
+  #overlayContent{    
+
+    position: absolute;
+    max-width: 400px;
+    top: 10%;
+    left: 50%;
+    font-size: 22px;
+    
+    color: #f8f8f7;
   }

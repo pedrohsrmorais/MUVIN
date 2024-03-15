@@ -1,15 +1,15 @@
-/* SeuComponente.css */
+
 .menu {
   display: flex;
   align-items: center;
   color: white;
-  padding: 20px;
+
   justify-content: space-between;
  
 }
 
 #imgheader {
-  width: 400px; /* Ajuste conforme necessário */
+  width: 400px; 
   height: auto;
   margin-right: 40px;
 }

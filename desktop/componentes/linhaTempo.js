@@ -1,7 +1,7 @@
 
 // URL da api da Linha do Tempo
 const linha_api = 'http://localhost/MUVIN/backend/api_linhaTempo.php';
-let dados = []
+
 
 // Fetch dos dados da api
 const fetchLinhaTempo = async () => {
@@ -42,27 +42,32 @@ function linhaTempoFunction() {
     // Criando a régua da linha do tempo
     for (var ano = primeiroAno; ano <= ultimoAno; ano++) {
 
+      // Desenhando as décadas
+      var divDecada = document.createElement('div');
+
+      let resto = ano % 10;
+      if (resto == 0) {
+        divDecada.textContent = ano;
+      } else { divDecada.innerHTML = "&nbsp; "; 
+    }
+      
+      divDecada.id = "Decada: " + ano;
+      divDecada.className = 'decadas';
+
+      rootLinhaTempo.appendChild(divDecada)
+
+
+      // Desenhando os anos
       var divAno = document.createElement('div');
-
-
 
       divAno.textContent = '|';
       divAno.id = ano;
-      divAno.className = 'linhaTempo'
+      divAno.className = 'anos';
 
-      rootLinhaTempo.appendChild(divAno)
+      divDecada.appendChild(divAno)
 
-      /*
-            // Desenhando as décadas
-            let resto = ano % 10;
-            if (resto == 0) {
-              var refAno = document.createElement('p')
-              refAno.textContent =  ano;
-      
-              refDiv = document.getElementById(ano)
-      
-            }
-      */
+
+
 
     }
 
@@ -86,11 +91,23 @@ function linhaTempoFunction() {
 
         });
 
+        // Event Listener do tooltip para abrir e fechar a tooltip completa
+        tooltip.addEventListener( 'mouseover', function() {
+
+
+        })
+        tooltip.addEventListener( 'mouseout', function() {
+
+        })
+
+
+
         document.getElementById(data[ano][i].ano_fabricacao).appendChild(tooltip);
       }
 
 
     }
+
 
   })
 }

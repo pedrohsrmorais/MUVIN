@@ -1,30 +1,34 @@
-/* ----------------------------------------------------------------------------TIMELINE-----------------*/
+/* ------------------------------------------------------- Linha do tempo -----------------*/
 #rootLinhaTempo {
 
-    /*Posição*/
-    z-index: 1;
-    height: 300px;
+
+
+    height: 320px;
     width: 80%;
     padding-left: 5%;
     margin-left: 5%;
 
     margin-left: 5%;
     padding-right: 5%;
-
+    
 
     display: flex;
     overflow-x: scroll;
     white-space: nowrap;
     user-select: none;
+
+
 }
 
-.linhaTempo {
-    /*Posição*/
-    margin-left: 30px;
+.decadas {
+
+    margin-left: 15px;
+    margin-right: 15px;
     color: #ffffff;
     text-align: center;
     font-size: 18px;
     font-style: italic;
+
 
 }
 
@@ -35,17 +39,21 @@
     width: 18px;
     height: 18px;
 
-    margin-top: 14px;
-    margin-bottom: 14px;
+    
 
     background-color: white;
     border-radius: 50%;
     border: none;
 
+    margin: 0 auto; 
+
+    margin-top: 14px;
+    margin-bottom: 14px;
+
 }
 
 .tooltip:hover{
-    background-color: rgb(235, 238, 228);
+    background-color: rgb(226, 226, 243);
     cursor: pointer;
 }
 

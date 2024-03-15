@@ -6,39 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muvin</title>
 
+    <!------ Css ------>
     <link rel="stylesheet" href="./css/body.css">
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/linha.css">
     <link rel="stylesheet" href="./css/overlay.css">
-
-
-    <script src='./componentes/linhaTempo.js'></script>
-    <script src='./componentes/catalogo.js'></script>
-    <script src='./componentes/about.js'></script>
-    <script src='./componentes/contato.js'></script>
-    <script src='./componentes/overlay.js'></script>
+    <link rel="stylesheet" href="./css/catalogo.css">
 
 </head>
 
 <body>
-
+    <!------ Roots ------>
     <div id='rootMenu'></div>
-
     <div id='root'></div>
 
 
 
-    <!-- overlay -->
+    <!------ Overlay ------>
     <div class="overlay" id="overlay">
-        <img id="overlayImagem" src="" alt="imagem do modelo">
+        <div id="overlayImagemDiv"></div>
         <button id="overlayCloseButton"> X </button>
         <div id="overlayContent"></div>
-        
+
     </div>
 
 
 </body>
 
+<!------ Scripts ------>
+<script src='./componentes/linhaTempo.js'></script>
+<script src='./componentes/catalogo.js'></script>
+<script src='./componentes/about.js'></script>
+<script src='./componentes/contato.js'></script>
+<script src='./componentes/overlay.js'></script>
 <script src='./componentes/menu.js'></script>
 
 </html>

@@ -1,0 +1,13 @@
+#rootCatalogo{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas com tamanhos iguais */
+    grid-gap: 20px; /* Espaçamento entre as colunas */
+
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.cartao{
+    color: rgb(0, 0, 0);
+    background-color: rgb(136, 136, 224);
+}

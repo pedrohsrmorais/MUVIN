@@ -15,19 +15,58 @@ function overlay(dataId) {
 
 
     fetchOverlay(dataId).then((data) => {
-        console.log(data)
+
 
         // Pegando os DOM overlay
         var overlay = document.getElementById('overlay');
-        var overlayImagem = document.getElementById('overlayImagem');
+        var overlayImagemDiv = document.getElementById('overlayImagemDiv');
         var overlayCloseButton = document.getElementById('overlayCloseButton')
         var overlayContent = document.getElementById('overlayContent')
 
-        overlayCloseButton.addEventListener( 'click', ()=>{overlay.style.display = "none";})
+        // Lógica do fechamento do overlay
+        overlayCloseButton.addEventListener('click', () => {
+            overlay.style.display = "none";
+            overlayContent.textContent = null;
+            while (overlayImagemDiv.firstChild) {
+                overlayImagemDiv.removeChild(overlayImagemDiv.firstChild);
+            }
+        })
+
+        // Lógica da abertura do overlay
         overlay.style.display = "block";
 
-        overlayContent.textContent = JSON.stringify(data);
-        overlayImagem.src = data.urls[0];
+        for (let i = 0; i < data.urls.length; i++) {
+
+            // Criação das imagens
+            var overlayImagem = document.createElement("img");
+            overlayImagem.id = `imagem${i}`;
+            overlayImagem.src = data.urls[i]
+            overlayImagem.className = "overlayImagem"
+            overlayImagem.style['z-index'] = i;
+
+
+/*
+            // Slider
+            var sliderImagem = document.createElement("button")
+            sliderImagem.innerText = `sliderImagem${i}`
+            sliderImagem.onclick = function () {
+
+                document.getElementById(`imagem${i}`).style.display = "block"
+            }
+            overlayImagemDiv.appendChild(sliderImagem);
+*/
+            overlayImagemDiv.appendChild(overlayImagem);
+           
+
+        }
+
+        for (var chave in data) {
+            if (chave != 'urls' && chave != 'id') {
+                var div = document.createElement("div");
+                div.textContent = chave + ": " + data[chave];
+                overlayContent.appendChild(div);
+            }
+        }
 
 
     })

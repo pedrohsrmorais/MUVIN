@@ -34,10 +34,11 @@ function MenuLoad(page) {
         case 'home':
             root.innerHTML = linhaTempo;
             linhaTempoFunction();
-            
+
             break;
         case 'catalogo':
             root.innerHTML = catalogo;
+            catalogoFunction();
             break;
         case 'about':
             root.innerHTML = about;
@@ -45,7 +46,7 @@ function MenuLoad(page) {
         case 'contato':
             root.innerHTML = contato;
             break;
-        default:            
+        default:
             root.innerHTML = linhaTempo;
             linhaTempoFunction();
 
