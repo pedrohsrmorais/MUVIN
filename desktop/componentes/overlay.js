@@ -10,12 +10,11 @@ const fetchOverlay = async (id_overlay) => {
 
 
 
+// Criação do overlay
 function overlay(dataId) {
 
-
-
     fetchOverlay(dataId).then((data) => {
-
+        console.log(data)
 
         // Pegando os DOM overlay
         var overlay = document.getElementById('overlay');

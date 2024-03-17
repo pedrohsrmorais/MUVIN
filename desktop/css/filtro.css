@@ -3,10 +3,11 @@
     top: 100px;
     left: 600px;
 
-    height: 400px;
+    height: 200px;
     width: 300px;
 
     background-color: #013952;
     border-style:groove;
     border-color: #001c29;
+    padding: 6px;
 }
