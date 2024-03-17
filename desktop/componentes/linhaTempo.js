@@ -1,9 +1,16 @@
 
+
+
+// Root da linha do tempo criado em cima da root principal
+var linhaTempo =
+  `<div id='rootLinhaTempo'></div>`;
+
+
 // URL da api da Linha do Tempo
 const linha_api = 'http://localhost/MUVIN/backend/api_linhaTempo.php';
 
 
-// Fetch dos dados da api
+// Fetch dos dados da api da Linha do Tempo
 const fetchLinhaTempo = async () => {
 
   const response = await fetch(linha_api);
@@ -13,23 +20,12 @@ const fetchLinhaTempo = async () => {
 
 };
 
-
-
-var linhaTempo =
-  `<div id='rootLinhaTempo'></div>`;
-
-
 //Função que cria a linha do tempo
 function linhaTempoFunction() {
 
 
-
-
   //Executa assim que obter os dados da api
   fetchLinhaTempo().then((data) => {
-
-    // Executa quando o doc está totalmente carregado
-
 
     var rootLinhaTempo = document.getElementById('rootLinhaTempo');
 
@@ -48,9 +44,10 @@ function linhaTempoFunction() {
       let resto = ano % 10;
       if (resto == 0) {
         divDecada.textContent = ano;
-      } else { divDecada.innerHTML = "&nbsp; "; 
-    }
-      
+      } else {
+        divDecada.innerHTML = "&nbsp; ";
+      }
+
       divDecada.id = "Decada: " + ano;
       divDecada.className = 'decadas';
 
@@ -73,7 +70,6 @@ function linhaTempoFunction() {
 
 
 
-
     // Criando as tooltips
     for (const ano in data) {
 
@@ -92,11 +88,40 @@ function linhaTempoFunction() {
         });
 
         // Event Listener do tooltip para abrir e fechar a tooltip completa
-        tooltip.addEventListener( 'mouseover', function() {
+        tooltip.addEventListener('mouseover', function () {
+
+          var tooltipCompleta = document.createElement('div');
+          tooltipCompleta.className = 'tooltipCompleta'
+
+          var tooltipCompletaTexto = document.createElement('p');
+          tooltipCompletaTexto.className = 'tooltipCompletaTexto'
+          tooltipCompletaTexto.innerHTML = 'Modelo: ' + data[ano][i].modelo + ',<br>Ano de fabricação: ' + data[ano][i].ano_fabricacao + ',<br>Id: ' + data[ano][i].id
+
+
+          var tooltipCompletaImagem = document.createElement('img')
+          tooltipCompletaImagem.src = data[ano][i].url
+          tooltipCompletaImagem.className = "tooltipCompletaImagem"
+
+
+
+          tooltip.appendChild(tooltipCompleta);
+          tooltipCompleta.appendChild(tooltipCompletaImagem);
+          tooltipCompleta.appendChild(tooltipCompletaTexto);
+
+
+
+
+          document.getElementById("imgheader").style.opacity = 0;
+          tooltipCompleta.style.opacity = 1;
 
 
         })
-        tooltip.addEventListener( 'mouseout', function() {
+        tooltip.addEventListener('mouseout', function () {
+
+          tooltip.removeChild(tooltip.children[0]);
+
+          document.getElementById("imgheader").style.opacity = 1;
+
 
         })
 
@@ -108,6 +133,26 @@ function linhaTempoFunction() {
 
     }
 
+
+
+    // Fetch do overlay para ser usado com filtro
+    const fetchFiltro = async (id_overlay) => {
+
+      const response = await fetch(`http://localhost/MUVIN/backend/api_overlay.php?id=${id_overlay}`);
+      const result = await response.json();
+      return result;
+    };
+
+    // Atribui a cada tooltip seus respectivos dados
+    document.querySelectorAll(".tooltip").forEach((tooltip, index) => {
+      fetchFiltro(tooltip.id)
+        .then((dados) => {
+          Object.values(dados).forEach((value) => {
+            tooltip.setAttribute('data-dados', JSON.stringify(dados));
+          });
+
+        })
+    })
 
   })
 }

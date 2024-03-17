@@ -12,6 +12,9 @@
   width: 400px; 
   height: auto;
   margin-right: 40px;
+  opacity: 1;
+  transition: opacity 1.2s ease;
+
 }
 
 ul {

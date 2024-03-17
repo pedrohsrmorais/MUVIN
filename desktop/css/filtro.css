@@ -1,0 +1,12 @@
+.filtroDiv{
+    position: absolute;
+    top: 100px;
+    left: 600px;
+
+    height: 400px;
+    width: 300px;
+
+    background-color: #013952;
+    border-style:groove;
+    border-color: #001c29;
+}

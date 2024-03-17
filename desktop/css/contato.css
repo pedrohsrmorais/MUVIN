@@ -1,0 +1,50 @@
+.containerContato {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 14px;
+
+    width: 90%; 
+    height: 80%; 
+    border: 1px solid #ccc; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: auto;
+    border-radius: 30px;
+
+    background: linear-gradient(rgb(47, 114, 143), #013952);
+}
+
+.ImagemContato {
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.formularioContato {
+    max-width: 50%;
+    width: 30%;
+    float:right;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contatoLabel{
+    display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+}
+
+.contatoInput,
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      display: block; /* Adicionado */
+    }
