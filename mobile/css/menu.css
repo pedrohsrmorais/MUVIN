@@ -1,0 +1,47 @@
+#rootMenu{
+  width: 100%;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  color: white;
+  width: 100%;
+  margin-left: 6px;
+ 
+}
+
+ul {
+  list-style: none;
+  display: flex;
+
+  padding: 14px;
+  background: linear-gradient(#05293a , rgb(24, 64, 82)  );
+  border-radius: 26px;
+}
+
+li {
+
+}
+
+.menuButton {
+  height: 95%;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+  background: linear-gradient(to bottom, #ffffff 70%, #919191 30%);
+  background-clip: text;
+  color: transparent;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+}
+
+
+button:hover {
+  color: #ffffff; 
+  background-color: #555; 
+}

@@ -1,0 +1,96 @@
+/* ------------------------------------------------------- Linha do tempo -----------------*/
+#rootLinhaTempo {
+
+    margin-top: 120px;
+    height: 420px;
+    width: 100%;
+
+    display: flex;
+    overflow-x: scroll;
+    white-space: nowrap;
+    user-select: none;
+
+
+}
+
+.decadas {
+
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+
+
+}
+
+/*-----------------------  Tooltip  ---------- */
+.tooltip {
+
+    display: flex;
+    width: 14px;
+    height: 14px;
+
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+
+    margin: 0 auto;
+
+    margin-top: 14px;
+    margin-bottom: 14px;
+
+}
+
+.tooltip:hover {
+    background-color: rgb(226, 226, 243);
+    cursor: pointer;
+}
+
+.tooltipCompleta {
+    background: linear-gradient(#013952 , rgb(47, 114, 143)  );
+    border-style: groove;
+    border-color: #c3bc1b;
+    border-width: 1px;
+
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    height: 120px;
+    width: 420px;
+    
+    
+
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    border-radius: 16px;
+    text-align: center;
+}
+.tooltipCompletaTexto{
+    color: azure;
+    max-width: 160px;
+    font-size: 16px;
+    float: left;
+    margin-left: 20px;
+
+}
+
+.tooltipCompletaImagem{
+    float: left;
+    max-width: 40%;
+    height: 100%;
+    border-radius: 16px;
+
+}
+
+/*-----------------------Barra de Rolagem---------- */
+::-webkit-scrollbar {
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 8px;
+}

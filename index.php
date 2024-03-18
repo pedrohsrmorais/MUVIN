@@ -1,20 +1,26 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionamento de Dispositivo</title>
+    <script>
+        // Função para verificar se é um dispositivo móvel
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
 
-function isDesktop()
-{
-    $userAgent = $_SERVER['HTTP_USER_AGENT'];
-
-    return !preg_match('/(Mobile|Android|iPhone|iPad|Windows Phone)/i', $userAgent);
-}
-
-if (isDesktop()) {
-    // Redirecionar para a página desktop
-    header("Location: desktop/index.html");
-    exit();
-} else {
-    // Redirecionar para a página mobile
-    header("Location: mobile/index.html");
-    exit();
-}
-
-?>
+        // Redirecionamento baseado no tipo de dispositivo
+        if (isMobile()) {
+            // Redirecionar para a página mobile
+            window.location.href = "mobile/index.html";
+        } else {
+            // Redirecionar para a página desktop
+            window.location.href = "desktop/index.html";
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecionando...</p>
+</body>
+</html>
