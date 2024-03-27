@@ -7,7 +7,7 @@ var menu =
                 <button onclick="MenuLoad('home')" class="menuButton">Inicio</button>
             </li>
             <li>
-                <button onclick="MenuLoad('catalogo')" class="menuButton" >Catalogo</button>
+                <button onclick="MenuLoad('catalogo')" class="menuButton" >Catálogo</button>
             </li>
             <li>
                 <button onclick="MenuLoad('filtro')" class="menuButton">Filtro</button>

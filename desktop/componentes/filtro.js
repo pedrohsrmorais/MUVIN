@@ -63,7 +63,7 @@ function FiltroFunction() {
     // Criação dos botões do filtro
     var filtroSair = document.createElement('button');
     filtroSair.className = "filtroSair";
-    filtroSair.textContent = "Sair";
+    filtroSair.textContent = "X";
     filtroSair.addEventListener('click',()=>{ root.removeChild(filtroDiv) })
     filtroDiv.appendChild(filtroSair);
 
