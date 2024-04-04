@@ -324,10 +324,13 @@ class BancoDeDados
         $busca =    "SELECT
                         componente.id, 
                         componente.modelo, 
-                        componente.ano_fabricacao, 
+                        componente.ano_fabricacao as 'ano de fabricação', 
+                        tipo.nome as tipo,
                         (SELECT imagem.nome FROM imagem WHERE imagem.componente_id = componente.id LIMIT 1) AS nome_imagem 
                     FROM 
                         componente
+                    INNER JOIN 
+                        tipo ON tipo.id = componente.tipo_id
                     ORDER BY componente.ano_fabricacao";
 
         try
@@ -346,7 +349,7 @@ class BancoDeDados
         {
             $componente["url"] = CAMINHO_IMAGENS . $componente["id"] . "/" . $componente["nome_imagem"];
             unset($componente["nome_imagem"]);
-            $anos[$componente["ano_fabricacao"]][] = $componente;
+            $anos[$componente["ano de fabricação"]][] = $componente;
         }
     
         return $anos;
@@ -400,7 +403,6 @@ class BancoDeDados
 
     function visualizaOverlay($id)
     {
-        $caminho = "localhost/MUVIN2/imagens/";
         $componente = [];
         $tipo = $this->pegarTipo($id);
 
@@ -408,14 +410,18 @@ class BancoDeDados
         if(!$estrutura_tipo)
             return $componente;
 
-        $campos_select = "componente.id, componente.ano_fabricacao, componente.modelo, 
-                            fabricante.nome as fabricante, pais.nome as pais, componente.descricao, componente.curiosidades";
+        $campos_select = "componente.id, componente.ano_fabricacao as 'ano de fabricação', componente.modelo,
+                            fabricante.nome as fabricante, pais.nome as 'país', tipo.nome as 'tipo',
+                            componente.descricao as 'Descrição', componente.curiosidades";
 
         foreach($estrutura_tipo["campos"] as $campo)
         {
-            if( $campo["nome"] == "componente_id")
+            if( $campo["nome"] == "componente_id" || $campo["nome"] == "id")
                 continue;
-            $campos_select = $campos_select . ", " . $tipo . "." .  $campo["nome"];
+            if(in_array($campo["nome"], ["tipo", "fabricante", "pais"]))    
+               $campos_select = $campos_select . ", " . $tipo . "." .  $campo["nome"] . " as '" . $tipo . " " . $campo["nome"] . "'";
+            else
+                $campos_select = $campos_select . ", " . $tipo . "." .  $campo["nome"];
         }
 
         $busca =    "SELECT " .  $campos_select . "
@@ -424,11 +430,12 @@ class BancoDeDados
                         fabricante ON componente.fabricante_id = fabricante.id 
                     INNER JOIN 
                         pais ON componente.pais_id = pais.id
-                    INNER JOIN " .
-                        $tipo . " ON componente.id = " . $tipo . ".componente_id
+                    INNER JOIN 
+                        tipo ON componente.tipo_id = tipo.id
+                    INNER JOIN 
+                       " . $tipo . " ON componente.id = " . $tipo . ".componente_id
                     WHERE
                         componente.id = " . $id;
-
         try
         {
             $this->query = $this->conexao->prepare($busca);
@@ -448,4 +455,49 @@ class BancoDeDados
         
     }
 
+    function pegar_nomes($tabela)
+    {
+        $busca =    "SELECT DISTINCT nome FROM " . $tabela;
+        try
+        {
+            $this->query = $this->conexao->prepare($busca);
+            $this->query->execute();
+        } 
+        catch (Exception $e)
+        {
+            return [];
+        }
+        $resultados = $this->query->fetchAll(PDO::FETCH_ASSOC);;
+        foreach($resultados as $resultado)
+            $nomes[] = $resultado["nome"];
+        
+        return $nomes;
+    }
+
+    function lista_valores_campos_filtro()
+    {
+        $campos_filtro = [];
+        $campos_filtro["fabricante"] = $this->pegar_nomes("fabricante");
+        $campos_filtro["tipo"] = $this->pegar_nomes("tipo");
+        $campos_filtro["país"]  = $this->pegar_nomes("pais");
+
+
+        $busca =    "SELECT DISTINCT ano_fabricacao FROM componente ORDER BY ano_fabricacao";
+        try
+        {
+            $this->query = $this->conexao->prepare($busca);
+            $this->query->execute();
+        } 
+        catch (Exception $e){}
+        
+        $resultados = $this->query->fetchAll(PDO::FETCH_ASSOC);
+        foreach($resultados as $resultado)
+            $campos_filtro["ano de fabricação"][] = $resultado["ano_fabricacao"];
+        
+        return $campos_filtro;  
+        
+    }
+
 }
+
+

@@ -8,7 +8,7 @@
 $id = $_GET["id"];
 $banco_de_dados = new BancoDeDados();
 $componente = $banco_de_dados->visualizaOverlay($id);
-echo json_encode($componente, JSON_UNESCAPED_SLASHES);
+echo json_encode($componente, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 
 
