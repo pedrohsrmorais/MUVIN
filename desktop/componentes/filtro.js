@@ -14,6 +14,7 @@ function FiltroFunction() {
     // Componentes filtráveis
     let fabricantesUnicos = new Set();
     let paisUnicos = new Set();
+    let tiposUnicos = new Set();
 
 
     document.querySelectorAll('[data-dados]').forEach((elemento, index) => {
@@ -22,7 +23,8 @@ function FiltroFunction() {
         const dadosObjeto = JSON.parse(dadosString);
 
         fabricantesUnicos.add(dadosObjeto.fabricante);
-        paisUnicos.add(dadosObjeto.pais);
+        paisUnicos.add(dadosObjeto.país);
+        tiposUnicos.add(dadosObjeto.tipo);
 
     });
 
@@ -31,9 +33,11 @@ function FiltroFunction() {
     // Criação dos Selects do filtro
     var filtroSelectFabricante = document.createElement("select");
     var filtroSelectPais = document.createElement("select");
+    var filtroSelectTipo = document.createElement("select");
 
     filtroDiv.appendChild(filtroSelectFabricante);
     filtroDiv.appendChild(filtroSelectPais);
+    filtroDiv.appendChild(filtroSelectTipo);
 
     var filtroOptionFabricante = document.createElement("option");
     filtroOptionFabricante.value = '';
@@ -44,6 +48,11 @@ function FiltroFunction() {
     filtroOptionPais.value = '';
     filtroOptionPais.textContent = '--';
     filtroSelectPais.appendChild(filtroOptionPais);
+
+    var filtroOptionTipo = document.createElement("option");
+    filtroOptionTipo.value = '';
+    filtroOptionTipo.textContent = '--';
+    filtroSelectTipo.appendChild(filtroOptionTipo);
 
     // Criação das opções possíveis de serem filtradas
     for (const item of fabricantesUnicos) {
@@ -60,6 +69,13 @@ function FiltroFunction() {
         filtroSelectPais.appendChild(filtroOptionPais);
     }
 
+    for (const item of tiposUnicos) {
+        var filtroOptionTipo = document.createElement("option");
+        filtroOptionTipo.value = item;
+        filtroOptionTipo.textContent = item;
+        filtroSelectTipo.appendChild(filtroOptionTipo);
+    }
+
     // Criação dos botões do filtro
     var filtroSair = document.createElement('button');
     filtroSair.className = "filtroSair";
@@ -71,7 +87,7 @@ function FiltroFunction() {
     filtroFiltrar.className = "filtroFiltrar";
     filtroFiltrar.textContent = "Filtrar";
     filtroFiltrar.addEventListener('click', () => {
-        console.log('Filtrando com fabricante:', filtroSelectFabricante.value, 'e país:', filtroSelectPais.value);
+        console.log('Filtrando com fabricante:', filtroSelectFabricante.value, 'país:', filtroSelectPais.value , ' Tipo: ', filtroSelectTipo.value);
     });
     filtroDiv.appendChild(filtroFiltrar);
 

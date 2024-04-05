@@ -88,7 +88,7 @@ function catalogoFunction() {
         cartao.appendChild(cartaoImagem)
 
         var cartaoTexto = document.createElement("p")
-        cartaoTexto.innerHTML = "Modelo: <br>" + data[ano][i].modelo + "<br><br> Ano de fabricação: <br>" + data[ano][i].ano_fabricacao
+        cartaoTexto.innerHTML = "Modelo: <br>" + data[ano][i].modelo + "<br><br> Ano de fabricação: <br>" + data[ano][i]["ano de fabricação"]
         cartaoTexto.className = 'cartaoTexto'
         cartao.appendChild(cartaoTexto)
 

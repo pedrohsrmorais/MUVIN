@@ -88,14 +88,14 @@ function linhaTempoFunction() {
         });
 
         // Event Listener do tooltip para abrir e fechar a tooltip completa
-        tooltip.addEventListener('mouseover', function () {
+        tooltip.addEventListener('mouseover', function (event) {
 
           var tooltipCompleta = document.createElement('div');
           tooltipCompleta.className = 'tooltipCompleta'
 
           var tooltipCompletaTexto = document.createElement('p');
           tooltipCompletaTexto.className = 'tooltipCompletaTexto'
-          tooltipCompletaTexto.innerHTML = 'Modelo: ' + data[ano][i].modelo + ',<br>Ano de fabricação: ' + data[ano][i].ano_fabricacao + ',<br>Id: ' + data[ano][i].id
+          tooltipCompletaTexto.innerHTML = 'Modelo: ' + data[ano][i].modelo + ',<br>Ano de fabricação: ' + data[ano][i]["ano de fabricação"] + ',<br>Id: ' + data[ano][i].id
 
 
           var tooltipCompletaImagem = document.createElement('img')
@@ -111,23 +111,35 @@ function linhaTempoFunction() {
 
 
 
-          document.getElementById("imgheader").style.opacity = 0;
+          //document.getElementById("imgheader").style.opacity = 0;
           tooltipCompleta.style.opacity = 1;
 
+
+          let eixo = (event.clientX) - 220
+          if (eixo < 11){
+            eixo = 11
+          }
+          if (eixo > 1040)
+          {
+            eixo = 1040
+          }
+          
+          // Muda a posição da tooltip completa dependendo do y do mouse
+          tooltipCompleta.style.left = eixo + 'px';
 
         })
         tooltip.addEventListener('mouseout', function () {
 
           tooltip.removeChild(tooltip.children[0]);
 
-          document.getElementById("imgheader").style.opacity = 1;
+          // document.getElementById("imgheader").style.opacity = 1;
 
 
         })
 
 
 
-        document.getElementById(data[ano][i].ano_fabricacao).appendChild(tooltip);
+        document.getElementById(data[ano][i]["ano de fabricação"]).appendChild(tooltip);
       }
 
 
