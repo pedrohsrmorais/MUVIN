@@ -33,6 +33,24 @@
     </div>
 
 
+    <img id="alter" src="../backend/imagens/luz.png" alt="Imagem Clicável">
+
+    <script>
+
+        let isBackgroundBlue = true; 
+
+        document.getElementById("alter").addEventListener("click", function () {
+            if (isBackgroundBlue) {
+                document.body.style.background = "linear-gradient(#273e49, rgb(2, 57, 94))";
+
+            } else {
+                document.body.style.background = "linear-gradient(#013952, rgb(47, 114, 143))";
+            }
+            isBackgroundBlue = !isBackgroundBlue;
+            
+        }); 
+    </script>
+
 </body>
 
 <!------ Scripts ------>

@@ -4,7 +4,7 @@ var menu =
         <img id="imgheader" src="../backend/imagens/Logo.png" alt="Imagem Muvin">
         <ul>
             <li>
-                <button onclick="MenuLoad('home')" class="menuButton">Inicio</button>
+                <button onclick="MenuLoad('home')" class="menuButton">Linha do Tempo</button>
             </li>
             <li>
                 <button onclick="MenuLoad('catalogo')" class="menuButton" >Catálogo</button>

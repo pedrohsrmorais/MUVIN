@@ -28,7 +28,7 @@ function FiltroFunction() {
 
     });
 
-    
+
 
     // Criação dos Selects do filtro
     var filtroSelectFabricante = document.createElement("select");
@@ -80,15 +80,35 @@ function FiltroFunction() {
     var filtroSair = document.createElement('button');
     filtroSair.className = "filtroSair";
     filtroSair.textContent = "X";
-    filtroSair.addEventListener('click',()=>{ root.removeChild(filtroDiv) })
+    filtroSair.addEventListener('click', () => { root.removeChild(filtroDiv) })
     filtroDiv.appendChild(filtroSair);
 
     var filtroFiltrar = document.createElement('button');
     filtroFiltrar.className = "filtroFiltrar";
     filtroFiltrar.textContent = "Filtrar";
     filtroFiltrar.addEventListener('click', () => {
-        console.log('Filtrando com fabricante:', filtroSelectFabricante.value, 'país:', filtroSelectPais.value , ' Tipo: ', filtroSelectTipo.value);
+        const fabricanteSelecionado = filtroSelectFabricante.value;
+        const paisSelecionado = filtroSelectPais.value;
+        const tipoSelecionado = filtroSelectTipo.value;
+
+        document.querySelectorAll('[data-dados]').forEach(elemento => {
+            const dadosString = elemento.getAttribute('data-dados');
+            const dadosObjeto = JSON.parse(dadosString);
+
+            const deveOcultar =
+                (fabricanteSelecionado && dadosObjeto.fabricante !== fabricanteSelecionado) ||
+                (paisSelecionado && dadosObjeto.país !== paisSelecionado) ||
+                (tipoSelecionado && dadosObjeto.tipo !== tipoSelecionado);
+
+            if (deveOcultar) {
+                elemento.style.display = 'none';
+            } else {
+                elemento.style.display = '';
+            }
+        });
+
     });
+
     filtroDiv.appendChild(filtroFiltrar);
 
 

@@ -28,7 +28,7 @@ function catalogoFunction() {
 
     var elemento = [];
     var elementosTotais = 0;
-    var elementosPagina = 8;
+    var elementosPagina = 16;
     var paginaAtual = 1;
 
 
@@ -36,34 +36,34 @@ function catalogoFunction() {
     var elementosPaginaBotao = document.createElement('select');
     elementosPaginaBotao.className = 'elementosPaginaBotao'
 
-    var option4 = document.createElement('option');
-    option4.value = 4;
-    option4.textContent = '4 por página';
 
-    var option6 = document.createElement('option');
-    option6.value = 6;
-    option6.textContent = '6 por página';
 
-    var option8 = document.createElement('option');
-    option8.value = 8;
-    option8.textContent = '8 por página';
-    option8.selected = true; // Esta opção será selecionada por padrão
+    var option16 = document.createElement('option');
+    option16.value = 16;
+    option16.textContent = '16 por página';
+    option16.selected = true;
 
-    var option10 = document.createElement('option');
-    option10.value = 10;
-    option10.textContent = '10 por página';
+    var option32 = document.createElement('option');
+    option32.value = 32;
+    option32.textContent = '32 por página';
 
-    var option12 = document.createElement('option');
-    option12.value = 12;
-    option12.textContent = '12 por página';
+    var option64 = document.createElement('option');
+    option64.value = 64;
+    option64.textContent = '64 por página';
 
+    var option128 = document.createElement('option');
+    option128.value = 128;
+    option128.textContent = '128 por página';
+
+
+
+    //Excluir 4,6. realizar multiplos de 8. 
 
     // Adiciona as opções ao elemento select
-    elementosPaginaBotao.appendChild(option4);
-    elementosPaginaBotao.appendChild(option6);
-    elementosPaginaBotao.appendChild(option8);
-    elementosPaginaBotao.appendChild(option10);
-    elementosPaginaBotao.appendChild(option12);
+    elementosPaginaBotao.appendChild(option16);
+    elementosPaginaBotao.appendChild(option32);
+    elementosPaginaBotao.appendChild(option64);
+    elementosPaginaBotao.appendChild(option128);
 
     document.getElementById('rootCatalogoPaginacao').appendChild(elementosPaginaBotao);
 

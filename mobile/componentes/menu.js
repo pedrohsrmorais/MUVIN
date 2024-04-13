@@ -4,16 +4,13 @@ var menu =
 
         <ul>
             <li>
-                <button onclick="MenuLoad('home')" class="menuButton">Inicio</button>
+                <button onclick="MenuLoad('home')" class="menuButton">Linha do tempo</button>
             </li>
             <li>
                 <button onclick="MenuLoad('catalogo')" class="menuButton" >Catalogo</button>
             </li>
             <li>
-                <button onclick="MenuLoad('filtro')" class="menuButton">Filtro</button>
-            </li>
-            <li>
-                <button onclick="MenuLoad('contato')" class="menuButton">Contato</button>
+                <button onclick="MenuLoad('catalogo')" class="menuButton" > |||</button>
             </li>
         </ul>
     </div>

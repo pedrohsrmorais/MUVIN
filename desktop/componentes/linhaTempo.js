@@ -116,12 +116,13 @@ function linhaTempoFunction() {
 
 
           let eixo = (event.clientX) - 220
+          console.log(eixo)
           if (eixo < 11){
             eixo = 11
           }
-          if (eixo > 1040)
+          if (eixo > 900)
           {
-            eixo = 1040
+            eixo = 900
           }
           
           // Muda a posição da tooltip completa dependendo do y do mouse
