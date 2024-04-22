@@ -41,17 +41,17 @@ function FiltroFunction() {
 
     var filtroOptionFabricante = document.createElement("option");
     filtroOptionFabricante.value = '';
-    filtroOptionFabricante.textContent = '--';
+    filtroOptionFabricante.textContent = 'Fabricante';
     filtroSelectFabricante.appendChild(filtroOptionFabricante);
 
     var filtroOptionPais = document.createElement("option");
     filtroOptionPais.value = '';
-    filtroOptionPais.textContent = '--';
+    filtroOptionPais.textContent = 'País';
     filtroSelectPais.appendChild(filtroOptionPais);
 
     var filtroOptionTipo = document.createElement("option");
     filtroOptionTipo.value = '';
-    filtroOptionTipo.textContent = '--';
+    filtroOptionTipo.textContent = 'Tipo';
     filtroSelectTipo.appendChild(filtroOptionTipo);
 
     // Criação das opções possíveis de serem filtradas

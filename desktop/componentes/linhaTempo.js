@@ -15,6 +15,7 @@ const fetchLinhaTempo = async () => {
 
   const response = await fetch(linha_api);
 
+
   const result = await response.json();
   return result;
 
@@ -71,6 +72,9 @@ function linhaTempoFunction() {
 
 
     // Criando as tooltips
+
+
+
     for (const ano in data) {
 
       for (let i = 0; i < data[ano].length; i++) {
@@ -91,10 +95,12 @@ function linhaTempoFunction() {
         tooltip.addEventListener('mouseover', function (event) {
 
           var tooltipCompleta = document.createElement('div');
-          tooltipCompleta.className = 'tooltipCompleta'
+          tooltipCompleta.className = 'tooltipCompleta';
+
+
 
           var tooltipCompletaTexto = document.createElement('p');
-          tooltipCompletaTexto.className = 'tooltipCompletaTexto'
+          tooltipCompletaTexto.className = 'tooltipCompletaTexto';
           tooltipCompletaTexto.innerHTML = 'Modelo: ' + data[ano][i].modelo + ',<br>Ano de fabricação: ' + data[ano][i]["ano de fabricação"] + ',<br>Id: ' + data[ano][i].id
 
 
@@ -116,17 +122,16 @@ function linhaTempoFunction() {
 
 
           let eixo = (event.clientX) - 220
-          console.log(eixo)
-          if (eixo < 11){
+          if (eixo < 11) {
             eixo = 11
           }
-          if (eixo > 900)
-          {
+          if (eixo > 900) {
             eixo = 900
           }
-          
+
           // Muda a posição da tooltip completa dependendo do y do mouse
           tooltipCompleta.style.left = eixo + 'px';
+
 
         })
         tooltip.addEventListener('mouseout', function () {

@@ -15,6 +15,7 @@ const fetchLinhaTempo = async () => {
 
   const response = await fetch(linha_api);
 
+
   const result = await response.json();
   return result;
 
@@ -71,6 +72,9 @@ function linhaTempoFunction() {
 
 
     // Criando as tooltips
+
+
+
     for (const ano in data) {
 
       for (let i = 0; i < data[ano].length; i++) {
@@ -87,47 +91,9 @@ function linhaTempoFunction() {
 
         });
 
-        // Event Listener do tooltip para abrir e fechar a tooltip completa
-        tooltip.addEventListener('mouseover', function () {
-
-          var tooltipCompleta = document.createElement('div');
-          tooltipCompleta.className = 'tooltipCompleta'
-
-          var tooltipCompletaTexto = document.createElement('p');
-          tooltipCompletaTexto.className = 'tooltipCompletaTexto'
-          tooltipCompletaTexto.innerHTML = 'Modelo: ' + data[ano][i].modelo + ',<br>Ano de fabricação: ' + data[ano][i].ano_fabricacao + ',<br>Id: ' + data[ano][i].id
 
 
-          var tooltipCompletaImagem = document.createElement('img')
-          tooltipCompletaImagem.src = data[ano][i].url
-          tooltipCompletaImagem.className = "tooltipCompletaImagem"
-
-
-
-          tooltip.appendChild(tooltipCompleta);
-          tooltipCompleta.appendChild(tooltipCompletaImagem);
-          tooltipCompleta.appendChild(tooltipCompletaTexto);
-
-
-
-
-          document.getElementById("imgheader").style.opacity = 0;
-          tooltipCompleta.style.opacity = 1;
-
-
-        })
-        tooltip.addEventListener('mouseout', function () {
-
-          tooltip.removeChild(tooltip.children[0]);
-
-          document.getElementById("imgheader").style.opacity = 1;
-
-
-        })
-
-
-
-        document.getElementById(data[ano][i].ano_fabricacao).appendChild(tooltip);
+        document.getElementById(data[ano][i]["ano de fabricação"]).appendChild(tooltip);
       }
 
 

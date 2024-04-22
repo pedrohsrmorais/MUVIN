@@ -73,6 +73,7 @@ function catalogoFunction() {
     })
 
     // Criando os cartões do catálogo
+    
     for (const ano in data) {
 
       for (let i = 0; i < data[ano].length; i++) {

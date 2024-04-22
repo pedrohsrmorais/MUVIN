@@ -1,27 +1,31 @@
-#rootMenu{
+#rootMenu {
   width: 100%;
 }
+
 .menu {
+  position: fixed;
+  top: 2%;
+  left: 15%;
+
   display: flex;
   align-items: center;
-  color: white;
+
   width: 100%;
-  margin-left: 6px;
- 
+
+  z-index: 2;
+
 }
 
 ul {
   list-style: none;
   display: flex;
-
+  z-index: 2;
   padding: 12px;
-  background: linear-gradient(#05293a , rgb(24, 64, 82)  );
+  background-color: rgb(0, 30, 50);
   border-radius: 26px;
 }
 
-li {
 
-}
 
 .menuButton {
   height: 95%;
@@ -42,6 +46,71 @@ li {
 
 
 button:hover {
-  color: #ffffff; 
-  background-color: #555; 
+  color: #ffffff;
+  background-color: #555;
+}
+
+@keyframes moveMenuDown {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  30% {
+
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes moveMenuUp {
+  0% {
+    transform: translateY(0px);
+  }
+
+  30% {
+
+    transform: translateY(20px);
+  }
+
+  90% {
+    transform: translateY(-200px);
+  }
+
+  100% {
+    transform: translateY(-200px);
+    display: none;
+  }
+}
+
+.options {
+  z-index: 1;
+  position: fixed;
+  display: none;
+  top: -10%;
+  height: 220px;
+  width: 100%;
+  border-radius: 26px;
+  background-color: rgb(0, 30, 50);
+
+}
+
+.options a {
+  z-index: 1;
+  font: 30px;
+  color: #ffffff;
+}
+
+#optionsMenu {
+  transition: 1s ease;
+}
+
+.submenu {
+  position: fixed;
+  display: block;
+  height: 300px;
+  width: 300px;
+  color: aqua;
 }
