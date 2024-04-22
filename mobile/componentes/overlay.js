@@ -15,7 +15,6 @@ function overlay(dataId) {
 
     fetchOverlay(dataId).then((data) => {
 
-
         // Pegando os DOM overlay
         var overlay = document.getElementById('overlay');
         var overlayImagemDiv = document.getElementById('overlayImagemDiv');

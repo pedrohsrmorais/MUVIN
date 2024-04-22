@@ -16,6 +16,23 @@ var menu =
     </div>
 `
 
+var submenu =
+    `<div class="submenu">
+
+        <ul>
+            <li>
+                <button onclick="" class="menuButton">Contato</button>
+            </li>
+            <li>
+                <button onclick="" class="menuButton" >Sobre nós</button>
+            </li>
+            <li>
+                <button onclick="" class="menuButton" >Opções</button>
+            </li>
+        </ul>
+    </div>
+`
+
 var rootMenu = document.getElementById('rootMenu');
 var root = document.getElementById('root');
 
@@ -55,19 +72,22 @@ function MenuLoad(page) {
     }
 }
 
+
 /// Opções extras
 let options = document.createElement("div")
 let optionsVisibility = false;
 options.className = "options";
-rootMenu.appendChild(options);
+
+rootMenu.appendChild(options)
+options.innerHTML = submenu;
 
 
 document.getElementById("optionsMenu").addEventListener('click', () => {
 
     if (optionsVisibility == false){
-
-        options.style.display = "block";
         options.style.setProperty("animation", "moveMenuDown 1s forwards");
+        options.style.display = "block";
+
         optionsVisibility = true;
         document.getElementById("optionsMenu").style.transform = "rotate(90deg)";
 

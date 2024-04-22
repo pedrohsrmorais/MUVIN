@@ -53,3 +53,10 @@
 
 
 }
+
+#imgLoading{
+    position: absolute;
+    top: 30%;
+    left: 0;
+    max-width: 100%;
+}

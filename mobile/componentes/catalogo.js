@@ -3,19 +3,29 @@
 const catalogo_api = 'http://localhost/MUVIN/backend/api_linhaTempo.php';
 
 
-// Fetch dos dados da api
-const fetchCatalogo = async () => {
-
-  const response = await fetch(catalogo_api);
-
-  const result = await response.json();
-  return result;
-
-};
 
 var catalogo =
   `<div id='rootCatalogoPaginacao'></div>
   <div id='rootCatalogo'></div>`;
+
+
+// Fetch dos dados da api
+const fetchCatalogo = async () => {
+  
+   document.getElementById('rootCatalogo').innerHTML = `<img id="imgLoading" src="../backend/imagens/Logo.png" alt="Imagem Muvin">`;
+
+   // Aguarda 3 segundos antes de fazer a chamada à API
+   await new Promise(resolve => setTimeout(resolve, 1500));
+   
+
+   document.getElementById('rootCatalogo').innerHTML = ``
+
+   // Faz a chamada à API e retorna os resultados
+   const response = await fetch(catalogo_api);
+   const result = await response.json();
+   return result;
+
+};
 
 
 

@@ -1,18 +1,6 @@
 body {
-  background: linear-gradient(#013952, rgb(47, 114, 143));
-
+  background-color: rgb(13, 73, 99);
   margin: 0;
   padding: 0;
 
-}
-
-
-#alter {
-  position: absolute;
-  top: 2%;
-  left: 96%;
-
-  height: 24px;
-  width: 24px;
-  border-radius: 60px;
 }

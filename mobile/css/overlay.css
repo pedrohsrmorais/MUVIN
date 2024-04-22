@@ -5,7 +5,7 @@
     height: 80%;
     width: 80%;
     left: 10%;
-    top: 10%;
+    top: 12%;
     display: none;
     
     border: 2px solid #f7f7f8;
@@ -30,10 +30,10 @@
 
   #overlayCloseButton{
     position: fixed;
-    left: 90%;
-    top: 8%;
+    left: 86%;
+    top: 10%;
 
-    font-size: 24px;
+    font-size: 34px;
     color: #ffffff;
     background-color: transparent;
     border: none; 
