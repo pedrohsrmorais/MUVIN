@@ -1,5 +1,6 @@
 
 .menu {
+
   display: flex;
   align-items: center;
   color: white;
@@ -18,6 +19,7 @@
 }
 
 ul {
+  transform: translate(-50px,0);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -49,4 +51,87 @@ li {
 button:hover {
   color: #ffffff; 
   background-color: #555; 
+}
+
+/*                                      SUBMENU                   */
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(400px);
+  }
+
+  50% {
+
+    transform: translateX(-60px);
+  }
+
+  100% {
+    transform: translateX(-30px);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-30px);
+  }
+
+  30% {
+
+    transform: translateX(-60px);
+  }
+
+  90% {
+    transform: translateX(400px);
+  }
+
+  100% {
+    transform: translateX(400px);
+    display: none;
+  }
+}
+
+
+.options {
+
+  z-index: 1;
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 90%;
+
+  height: 100%;
+  width: 500px;
+
+  border-radius: 26px;
+  background-color: rgb(0, 30, 50);
+  color: #ffffff;
+
+}
+
+.submenu{
+  display: grid;
+  grid-template-columns: 1fr; 
+  grid-gap: 50px;
+  transform: translate(0, 65px);
+  
+}
+
+.subMenuButton{
+  position: relative;
+  top: 10%;
+  text-align: left;
+
+  background-color: #ffffff;
+  background-clip: text;
+  color: transparent;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px; 
+  transition: color 0.3s ease, background-color 0.3s ease;
+  
+}
+
+#optionsMenu {
+  transition: 1s ease;
 }

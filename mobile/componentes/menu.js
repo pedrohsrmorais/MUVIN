@@ -21,10 +21,10 @@ var submenu =
 
         <ul>
             <li>
-                <button onclick="" class="menuButton">Contato</button>
+                <button onclick="MenuLoad('contato')" class="menuButton">Contato</button>
             </li>
             <li>
-                <button onclick="" class="menuButton" >Sobre nós</button>
+                <button onclick="window.open('https://www.ufrgs.br/colegiodeaplicacao/', '_blank')" class="menuButton" >Sobre nós</button>
             </li>
             <li>
                 <button onclick="" class="menuButton" >Opções</button>

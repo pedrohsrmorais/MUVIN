@@ -32,7 +32,7 @@
     transform: rotate(180deg);
 }
 
-.filtroFiltrar{
+.filtroReset{
 
     transform: translate(180px,0px);
     font-size: 14px;

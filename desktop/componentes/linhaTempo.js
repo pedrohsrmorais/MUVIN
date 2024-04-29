@@ -3,8 +3,8 @@
 
 // Root da linha do tempo criado em cima da root principal
 var linhaTempo =
-  `<div id='rootLinhaTempo'></div>`;
-
+  `<button onClick="FiltroFunction();" class="filtroButton">Filtro</button>
+  <div id='rootLinhaTempo'></div>`;
 
 // URL da api da Linha do Tempo
 const linha_api = 'http://localhost/MUVIN/backend/api_linhaTempo.php';
@@ -93,7 +93,7 @@ function linhaTempoFunction() {
 
         // Event Listener do tooltip para abrir e fechar a tooltip completa
         tooltip.addEventListener('mouseover', function (event) {
-
+          
           var tooltipCompleta = document.createElement('div');
           tooltipCompleta.className = 'tooltipCompleta';
 
@@ -107,7 +107,6 @@ function linhaTempoFunction() {
           var tooltipCompletaImagem = document.createElement('img')
           tooltipCompletaImagem.src = data[ano][i].url
           tooltipCompletaImagem.className = "tooltipCompletaImagem"
-
 
 
           tooltip.appendChild(tooltipCompleta);

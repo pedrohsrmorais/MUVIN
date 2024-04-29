@@ -103,3 +103,22 @@
     background-color: #000000;
     border-radius: 8px;
 }
+
+.filtroButton {
+    position: fixed;
+    top: 90%;
+    left: 6%;
+    font-size: 18px;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    background: none;
+    border-radius: 22px;
+    padding: 6px;
+
+}
+
+.filtroButton:hover {
+    background-color: #ffffff;
+    color: #000000;
+}

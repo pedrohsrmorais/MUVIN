@@ -42,17 +42,6 @@ function overlay(dataId) {
             overlayImagem.className = "overlayImagem"
             overlayImagem.style['z-index'] = i;
 
-
-/*
-            // Slider
-            var sliderImagem = document.createElement("button")
-            sliderImagem.innerText = `sliderImagem${i}`
-            sliderImagem.onclick = function () {
-
-                document.getElementById(`imagem${i}`).style.display = "block"
-            }
-            overlayImagemDiv.appendChild(sliderImagem);
-*/
             overlayImagemDiv.appendChild(overlayImagem);
            
 
