@@ -135,3 +135,13 @@ button:hover {
 #optionsMenu {
   transition: 1s ease;
 }
+
+.acessibilidadeDiv{
+  position: fixed;
+  display: none;
+  top: 30%;
+  left: 30%;
+  width: 40%;
+  height: 40%;
+  background-color: #000277;
+}

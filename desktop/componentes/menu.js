@@ -82,11 +82,15 @@ function Submenu() {
     } else {
         options.style.setProperty("animation", "moveRight 1s forwards");
         optionsVisibility = false;
+
+        acessib.style.display = 'none';
+        acessibVisibility = false;
         //  document.getElementById("optionsMenu").style.transform = "rotate(0deg)";
 
     }
 }
 
+// Modo Escuro
 isBackgroundBlue = true;
 function modoEscuro() {
 
@@ -100,6 +104,21 @@ function modoEscuro() {
 
 }
 
-function acessibilidade(){
-    alert("Ainda não disponível")
+// Acessibilidade
+let acessib = document.createElement('div')
+acessib.className = "acessibilidadeDiv";
+acessib.innerHTML = `<button>Protanopia</button> <button>Deuteranopia</button> <button>Tritanopia</button>`;
+rootMenu.appendChild(acessib)
+let acessibVisibility = false;
+
+function acessibilidade() {
+    if (acessibVisibility == false) {
+        acessib.style.display = 'block';
+        acessibVisibility = true;
+    } else if (acessibVisibility == true){
+        acessib.style.display = 'none';
+        acessibVisibility = false;
+    }
+
 }
+
