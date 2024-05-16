@@ -56,7 +56,7 @@ var submenu = `
 
             <button onclick="acessibilidade()" class="subMenuButton">Acessibilidade</button>
 
-            <button onclick="" class="subMenuButton">Login</button>
+            <button onclick="Login()" class="subMenuButton">Login</button>
     </div>
 
 `;
@@ -113,8 +113,14 @@ let acessibVisibility = false;
 
 function acessibilidade() {
     if (acessibVisibility == false) {
+
         acessib.style.display = 'block';
         acessibVisibility = true;
+
+        //loginvisibi
+        login.style.display = 'none'
+        loginVisibility = false;
+
     } else if (acessibVisibility == true){
         acessib.style.display = 'none';
         acessibVisibility = false;
@@ -122,3 +128,4 @@ function acessibilidade() {
 
 }
 
+// Login -> login.js

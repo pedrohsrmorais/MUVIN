@@ -137,6 +137,7 @@ button:hover {
 }
 
 .acessibilidadeDiv{
+  
   position: fixed;
   display: none;
   top: 30%;
@@ -144,4 +145,5 @@ button:hover {
   width: 40%;
   height: 40%;
   background-color: #000277;
+
 }
