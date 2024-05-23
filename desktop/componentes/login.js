@@ -1,5 +1,5 @@
 var loginhtml =
-`
+    `
 <div class="login-container">
 <h2>Login</h2>
 <form action="/login" method="POST">
@@ -17,9 +17,10 @@ login.innerHTML = loginhtml;
 rootMenu.appendChild(login)
 let loginVisibility = false;
 
-function Login(){
+function Login() {
     if (loginVisibility == false) {
 
+        login.style.setProperty("animation", "slideLR 0.5s ease-out forwards");
         login.style.display = 'block'
         loginVisibility = true;
 
@@ -27,9 +28,18 @@ function Login(){
         acessib.style.display = 'none';
         acessibVisibility = false;
 
-    } else if (loginVisibility == true){
-
-        login.style.display = 'none'
+    } else if (loginVisibility == true) {
+        login.style.setProperty("animation", "slideRL 0.5s ease-out forwards");
         loginVisibility = false;
     }
 }
+
+// LOGIN REALIZADO
+document.querySelector('form').addEventListener('submit', function (event) {
+    var username = document.querySelector('input[name="username"]').value;
+    var password = document.querySelector('input[name="password"]').value;
+
+    event.preventDefault();
+    alert('Usuário e/ou senha inválidos');
+
+});

@@ -84,6 +84,7 @@ function Submenu() {
         optionsVisibility = false;
 
         acessib.style.display = 'none';
+        login.style.display = 'none';
         acessibVisibility = false;
         //  document.getElementById("optionsMenu").style.transform = "rotate(0deg)";
 
@@ -107,22 +108,88 @@ function modoEscuro() {
 // Acessibilidade
 let acessib = document.createElement('div')
 acessib.className = "acessibilidadeDiv";
-acessib.innerHTML = `<button>Protanopia</button> <button>Deuteranopia</button> <button>Tritanopia</button>`;
+acessib.innerHTML = `
+    <button class="acessibButton" id="deuteranopiaBtn">Deuteranopia</button> 
+    <button class="acessibButton" id="tritanopiaBtn">Tritanopia</button> 
+    <button class="acessibButton" id="acromaticoBtn">Acromático</button>
+    <button class="acessibButton" id="padraoBtn">Padrão</button>
+    `;
+
 rootMenu.appendChild(acessib)
+
+
+document.getElementById("deuteranopiaBtn").addEventListener("click", function () {
+
+    // Cor do menu
+    var menuButtons = document.getElementsByClassName("menuButton");
+    for (var i = 0; i < menuButtons.length; i++) {
+        menuButtons[i].style.color = "rgb(255, 200, 40)";
+    }
+
+    // Cor do background
+    document.body.style.background = "linear-gradient(#0f3ca0, #0a288c)";
+
+
+});
+
+document.getElementById("tritanopiaBtn").addEventListener("click", function () {
+
+    // Cor do menu
+    var menuButtons = document.getElementsByClassName("menuButton");
+    for (var i = 0; i < menuButtons.length; i++) {
+        menuButtons[i].style.color = "rgb(255, 200, 40)";
+    }
+
+    // Cor do background
+    document.body.style.background = "linear-gradient(#0f3ca0, #0a288c)";
+
+
+});
+
+document.getElementById("acromaticoBtn").addEventListener("click", function () {
+    
+    // Cor do menu
+    var menuButtons = document.getElementsByClassName("menuButton");
+    for (var i = 0; i < menuButtons.length; i++) {
+        menuButtons[i].style.color = "rgb(255, 255, 255)";
+    }
+
+    // Cor do background
+    document.body.style.background = "linear-gradient(rgb(25, 25, 25), rgb(255, 255, 255))";
+
+});
+
+document.getElementById("padraoBtn").addEventListener("click", function () {
+
+    // Cor do menu
+    var menuButtons = document.getElementsByClassName("menuButton");
+    for (var i = 0; i < menuButtons.length; i++) {
+        menuButtons[i].style.color = "rgb(255, 255, 255)";
+    }
+
+    // Cor do background
+    document.body.style.background = "linear-gradient(#013952, rgb(47, 114, 143))";
+
+});
+
+
 let acessibVisibility = false;
 
 function acessibilidade() {
     if (acessibVisibility == false) {
 
-        acessib.style.display = 'block';
-        acessibVisibility = true;
+        acessib.style.setProperty("animation", "slideLR 0.5s ease-out forwards");
+        acessib.style.display = 'grid'; 
+        acessibVisibility = true; 
 
         //loginvisibi
         login.style.display = 'none'
         loginVisibility = false;
 
-    } else if (acessibVisibility == true){
-        acessib.style.display = 'none';
+    } else if (acessibVisibility == true) {
+
+        acessib.style.setProperty("animation", "slideRL 0.5s ease-out forwards"); 
+
         acessibVisibility = false;
     }
 
