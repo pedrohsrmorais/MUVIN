@@ -9,10 +9,10 @@ var menu = `
                 <button onclick="MenuLoad('catalogo')" class="menuButton" >Catálogo</button>
             </li>
             <li>
-                <button onclick="MenuLoad('contato')" class="menuButton">Contato</button>
+                <button onclick="window.open('https://www.ufrgs.br/colegiodeaplicacao/', '_blank')" class="menuButton">Sobre nós</button>
             </li>
             <li>
-                <button onclick="Submenu()" name="optionsMenu" class="menuButton"><<</button>
+                <p> </p>
             </li>
         </ul>
     </div>
@@ -48,9 +48,9 @@ function MenuLoad(page) {
 // Opções extras (submenu)
 var submenu = `
     <div class="submenu">
-            <button onclick="Submenu()" class="subMenuButton"> >> </button>
+            <button onclick="Submenu()" class="subMenuButton">      </button>
 
-            <button onclick="window.open('https://www.ufrgs.br/colegiodeaplicacao/', '_blank')" class="subMenuButton">Sobre nós</button>
+            <button onclick="MenuLoad('contato')" class="subMenuButton">Contato</button>
 
             <button onclick="modoEscuro()" class="subMenuButton">Modo escuro</button>
 
@@ -65,10 +65,18 @@ var submenu = `
 
 let options = document.createElement("div")
 let optionsVisibility = false;
+let menuButton = document.getElementById("menuButtonId")
+
 options.className = "options";
 
 rootMenu.appendChild(options)
 options.innerHTML = submenu;
+
+let menuButtonX = document.createElement("button")
+menuButtonX.className = "menuButtonX";
+menuButtonX.textContent = "+";
+menuButtonX.onclick = Submenu;
+document.body.appendChild(menuButtonX);
 
 function Submenu() {
 
@@ -79,6 +87,13 @@ function Submenu() {
         optionsVisibility = true;
         //  document.getElementById("optionsMenu").style.transform = "rotate(90deg)";
 
+
+
+        menuButtonX.style.transform = "rotate(45deg) scale(1.8)";
+
+
+
+
     } else {
         options.style.setProperty("animation", "moveRight 1s forwards");
         optionsVisibility = false;
@@ -88,6 +103,7 @@ function Submenu() {
         acessibVisibility = false;
         //  document.getElementById("optionsMenu").style.transform = "rotate(0deg)";
 
+        menuButtonX.style.transform = "rotate(90deg) scale(1.6)";
     }
 }
 
@@ -147,7 +163,7 @@ document.getElementById("tritanopiaBtn").addEventListener("click", function () {
 });
 
 document.getElementById("acromaticoBtn").addEventListener("click", function () {
-    
+
     // Cor do menu
     var menuButtons = document.getElementsByClassName("menuButton");
     for (var i = 0; i < menuButtons.length; i++) {
@@ -179,8 +195,8 @@ function acessibilidade() {
     if (acessibVisibility == false) {
 
         acessib.style.setProperty("animation", "slideLR 0.5s ease-out forwards");
-        acessib.style.display = 'grid'; 
-        acessibVisibility = true; 
+        acessib.style.display = 'grid';
+        acessibVisibility = true;
 
         //loginvisibi
         login.style.display = 'none'
@@ -188,7 +204,7 @@ function acessibilidade() {
 
     } else if (acessibVisibility == true) {
 
-        acessib.style.setProperty("animation", "slideRL 0.5s ease-out forwards"); 
+        acessib.style.setProperty("animation", "slideRL 0.5s ease-out forwards");
 
         acessibVisibility = false;
     }
@@ -196,3 +212,5 @@ function acessibilidade() {
 }
 
 // Login -> login.js
+
+// Fontes e Paletas dinamicas:

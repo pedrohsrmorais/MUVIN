@@ -20,7 +20,7 @@ let loginVisibility = false;
 function Login() {
     if (loginVisibility == false) {
 
-        login.style.setProperty("animation", "slideLR 0.5s ease-out forwards");
+        login.style.setProperty("animation", "slideLR 0.4s ease-out forwards");
         login.style.display = 'block'
         loginVisibility = true;
 
@@ -29,7 +29,7 @@ function Login() {
         acessibVisibility = false;
 
     } else if (loginVisibility == true) {
-        login.style.setProperty("animation", "slideRL 0.5s ease-out forwards");
+        login.style.setProperty("animation", "slideRL 0.4s ease-out forwards");
         loginVisibility = false;
     }
 }

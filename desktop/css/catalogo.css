@@ -6,6 +6,8 @@
     height: 100%;
     margin-left: 40px;
     margin-right: 40px;
+
+    z-index: -2;
     
     
 }
@@ -23,6 +25,7 @@
 
     height: 120px;
     width: 310px;
+
 
 
 }
@@ -52,6 +55,7 @@
     color: rgb(0, 0, 0);
     overflow: hidden;
 
+
 }
 
 /* Estilização do select */
@@ -61,6 +65,7 @@
     left: 85%;
     width: 160px;
     height: 40px;
+
 
 }
   

@@ -1,9 +1,9 @@
 .overlay {
 
-
+  z-index: 4;
     position: absolute;
     height: 80%;
-    width: 80%;
+    width: 82%;
     left: 10%;
     top: 10%;
     display: none;

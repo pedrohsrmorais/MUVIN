@@ -1,8 +1,15 @@
+:root {
+  --cor-overlay: #3498db;
+  --fonte-overlay: 16px;
+  
+}
+
 body {
   background: linear-gradient(rgb(5, 60, 80), rgb(47, 114, 143));
 
   margin: 0;
   padding: 0;
+
 
 }
 
