@@ -18,7 +18,7 @@
     left: 260px;
 
     font-size: 12px;
-    color: #ffffff;
+    color: var(--cor-menu);
     background-color: #001c29;
     border-radius: 24px;
     border: none; 

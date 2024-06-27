@@ -1,11 +1,20 @@
 :root {
-  --cor-overlay: #3498db;
+  --cor-overlay: linear-gradient(#034f70, #002b3d);
   --fonte-overlay: 16px;
+
+  --cor-menu: #ffffff;
+  --fonte-menu: 26px;
+
+  --cor-submenu: rgb(0, 30, 50);
+
+  --cor-background: rgb(5, 60, 80);
   
+  --cor-catalogo: rgb(60, 120, 145);
+  --texto-catalogo: rgb(0,0,0);
 }
 
 body {
-  background: linear-gradient(rgb(5, 60, 80), rgb(47, 114, 143));
+  background: linear-gradient(var(--cor-background), rgb(60, 120, 145));
 
   margin: 0;
   padding: 0;

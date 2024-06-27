@@ -52,7 +52,7 @@ var submenu = `
 
             <button onclick="MenuLoad('contato')" class="subMenuButton">Contato</button>
 
-            <button onclick="modoEscuro()" class="subMenuButton">Modo escuro</button>
+            <button onclick="" class="subMenuButton">Modo escuro</button>
 
             <button onclick="acessibilidade()" class="subMenuButton">Acessibilidade</button>
 
@@ -125,15 +125,87 @@ function modoEscuro() {
 let acessib = document.createElement('div')
 acessib.className = "acessibilidadeDiv";
 acessib.innerHTML = `
-    <button class="acessibButton" id="deuteranopiaBtn">Deuteranopia</button> 
-    <button class="acessibButton" id="tritanopiaBtn">Tritanopia</button> 
-    <button class="acessibButton" id="acromaticoBtn">Acromático</button>
-    <button class="acessibButton" id="padraoBtn">Padrão</button>
+
+    <div>
+    <p>Cor do menu:</p>
+    <input type="color" id="colorMenu" name="colorMenu" value="#001e32">
+<br><br>
+    <p>Cor da fonte:</p>
+    <input type="color" id="colorFonte" name="colorFonte" value="#ffffff">
+    </div>
+    <div>
+    <p>Cor do background:</p>
+    <input type="color" id="colorBackground" name="colorBackground" value="#053c50">
+<br><br>
+    <p>Tamanho das fontes:</p>
+    <button class="FontePlus" onclick=fontesPlusFunctionMenu() id="FontePlus">+</button>
+    <button class="FonteMinus" onclick=fontesMinusFunctionMenu() id="FonteMinus">-</button>
+    </div>
+    <div>
+    <p>Cor catálogo:</p>
+    <input type="color" id="colorCatalogo" name="colorCatalogo" value="#3c7891">
+<br><br>
+    <p>Cor texto catálogo:</p>
+    <input type="color" id="colorCatalogoText" name="colorCatalogoText" value="#000000">
+
+    </div>
     `;
 
 rootMenu.appendChild(acessib)
 
+// Fontes e Paletas dinamicas MENU:
 
+
+// Função para alterar a paleta de cores:
+const colorMenu = document.getElementById('colorMenu');
+const colorFonte = document.getElementById('colorFonte');
+const colorBackground = document.getElementById('colorBackground');
+const colorCatalogo = document.getElementById('colorCatalogo');
+const colorCatalogoText = document.getElementById('colorCatalogoText');
+
+colorMenu.addEventListener('input', function () {
+    let root = document.documentElement;
+    root.style.setProperty('--cor-submenu', colorMenu.value);
+});
+
+colorFonte.addEventListener('input', function () {
+    let root = document.documentElement;
+    root.style.setProperty('--cor-menu', colorFonte.value);
+});
+
+colorBackground.addEventListener('input', function () {
+    let root = document.documentElement;
+    root.style.setProperty('--cor-background', colorBackground.value);
+});
+
+colorCatalogo.addEventListener('input', function () {
+    let root = document.documentElement;
+    root.style.setProperty('--cor-catalogo', colorCatalogo.value);
+});
+
+colorCatalogoText.addEventListener('input', function () {
+    let root = document.documentElement;
+    root.style.setProperty('--texto-catalogo', colorCatalogoText.value);
+});
+
+
+
+
+// Função para aumentar o tamanho da fonte
+function fontesPlusFunctionMenu() {
+    let root = document.documentElement;
+    let currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--fonte-menu'));
+    root.style.setProperty('--fonte-menu', `${currentSize + 2}px`);
+}
+
+// Função para diminuir o tamanho da fonte
+function fontesMinusFunctionMenu() {
+    let root = document.documentElement;
+    let currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--fonte-menu'));
+    root.style.setProperty('--fonte-menu', `${currentSize - 2}px`);
+}
+
+/*
 document.getElementById("deuteranopiaBtn").addEventListener("click", function () {
 
     // Cor do menu
@@ -187,7 +259,7 @@ document.getElementById("padraoBtn").addEventListener("click", function () {
     document.body.style.background = "linear-gradient(#013952, rgb(47, 114, 143))";
 
 });
-
+*/
 
 let acessibVisibility = false;
 
@@ -213,4 +285,3 @@ function acessibilidade() {
 
 // Login -> login.js
 
-// Fontes e Paletas dinamicas:

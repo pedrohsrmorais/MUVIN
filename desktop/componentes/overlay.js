@@ -23,6 +23,10 @@ function overlay(dataId) {
 
         // Lógica do fechamento do overlay
         overlayCloseButton.addEventListener('click', () => {
+            
+            overlay.removeChild(fontesPlus)
+            overlay.removeChild(fontesMinus)
+
             overlay.style.display = "none";
             overlayContent.textContent = null;
             while (overlayImagemDiv.firstChild) {
@@ -43,7 +47,7 @@ function overlay(dataId) {
             overlayImagem.style['z-index'] = i;
 
             overlayImagemDiv.appendChild(overlayImagem);
-           
+
 
         }
 
@@ -54,6 +58,37 @@ function overlay(dataId) {
                 overlayContent.appendChild(div);
             }
         }
+
+
+        // Fontes e Paletas dinamicas overlay:
+
+        // Função para aumentar o tamanho da fonte
+        function fontesPlusFunction() {
+            let root = document.documentElement;
+            let currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--fonte-overlay'));
+            root.style.setProperty('--fonte-overlay', `${currentSize + 2}px`);
+        }
+
+        // Função para diminuir o tamanho da fonte
+        function fontesMinusFunction() {
+            let root = document.documentElement;
+            let currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--fonte-overlay'));
+            root.style.setProperty('--fonte-overlay', `${currentSize - 2}px`);
+        }
+
+        // Cria o botão para aumentar a fonte
+        let fontesPlus = document.createElement("button");
+        fontesPlus.className = "fontesPlus";
+        fontesPlus.textContent = "+";
+        fontesPlus.onclick = fontesPlusFunction;
+        overlay.appendChild(fontesPlus);
+
+        // Cria o botão para diminuir a fonte
+        let fontesMinus = document.createElement("button");
+        fontesMinus.className = "fontesMinus";
+        fontesMinus.textContent = "-";
+        fontesMinus.onclick = fontesMinusFunction;
+        overlay.appendChild(fontesMinus);
 
 
     })

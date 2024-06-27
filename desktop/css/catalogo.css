@@ -16,8 +16,8 @@
 .cartao{
     margin-top: 20px;
     margin-bottom: 20px;
-    
-    background: linear-gradient(#bdd7e4 , rgb(47, 114, 143)  );
+    background: linear-gradient(to bottom, var(--cor-catalogo) 70%, #ffffff 140%);
+
     border-style: groove;
     border-color: #013952;
     border-width: 1px;
@@ -35,7 +35,7 @@
 
     padding: 6px 10px;
     margin: 10px;
-    background-color: #013952;
+    background-color: var(--cor-submenu);
     color: white;
     border: none;
     border-radius: 18px;
@@ -52,7 +52,7 @@
 .cartaoTexto{
     transform: translate(10px,-10px);
     font-size: 16px;
-    color: rgb(0, 0, 0);
+    color: var(--texto-catalogo);
     overflow: hidden;
 
 

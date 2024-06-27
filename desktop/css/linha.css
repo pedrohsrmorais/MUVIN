@@ -108,8 +108,8 @@
     position: fixed;
     top: 90%;
     left: 6%;
-    font-size: 18px;
-    color: #ffffff;
+    font-size: calc(var(--fonte-menu) - 8px);
+    color: var(--cor-menu);
     border: none;
     cursor: pointer;
     background: none;
