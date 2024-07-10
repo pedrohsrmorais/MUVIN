@@ -23,9 +23,9 @@ function overlay(dataId) {
 
         // Lógica do fechamento do overlay
         overlayCloseButton.addEventListener('click', () => {
-            
-            overlay.removeChild(fontesPlus)
-            overlay.removeChild(fontesMinus)
+
+            document.body.removeChild(divConfigOverlay)
+            overlay.removeChild(buttonConfigOverlay)
 
             overlay.style.display = "none";
             overlayContent.textContent = null;
@@ -60,6 +60,26 @@ function overlay(dataId) {
         }
 
 
+        let divConfigOverlay = document.createElement("div")
+        divConfigOverlay.className = 'divConfigOverlay'
+        divConfigOverlay.innerHTML = `
+        <button id="closeConfigOverlay">X<button>
+
+        <p>Cor do overlay:</p>
+        <input type="color" id="colorOverlay" name="colorOverlay" value="#3c7891">
+    `;
+        divConfigOverlay.style.display = 'none';
+        document.body.appendChild(divConfigOverlay);
+
+        let buttonConfigOverlay = document.createElement("button")
+        buttonConfigOverlay.textContent = "Configurações";
+        buttonConfigOverlay.addEventListener("click", openConfigOverlay);
+        overlay.appendChild(buttonConfigOverlay)
+
+        function openConfigOverlay() {
+            divConfigOverlay.style.display = 'block'
+        }
+
         // Fontes e Paletas dinamicas overlay:
 
         // Função para aumentar o tamanho da fonte
@@ -76,19 +96,31 @@ function overlay(dataId) {
             root.style.setProperty('--fonte-overlay', `${currentSize - 2}px`);
         }
 
+        // Function to close the configuration overlay
+        function closeConfigOverlay() {
+            divConfigOverlay.style.display = 'none';
+        }
+        document.getElementById("closeConfigOverlay").addEventListener("click", closeConfigOverlay);
+
         // Cria o botão para aumentar a fonte
         let fontesPlus = document.createElement("button");
         fontesPlus.className = "fontesPlus";
         fontesPlus.textContent = "+";
         fontesPlus.onclick = fontesPlusFunction;
-        overlay.appendChild(fontesPlus);
+        divConfigOverlay.appendChild(fontesPlus);
 
         // Cria o botão para diminuir a fonte
         let fontesMinus = document.createElement("button");
         fontesMinus.className = "fontesMinus";
         fontesMinus.textContent = "-";
         fontesMinus.onclick = fontesMinusFunction;
-        overlay.appendChild(fontesMinus);
+        divConfigOverlay.appendChild(fontesMinus);
+
+        const colorOverlay = document.getElementById('colorOverlay');
+        colorOverlay.addEventListener('input', function () {
+            let root = document.documentElement;
+            root.style.setProperty('--cor-overlay', colorOverlay.value);
+        });
 
 
     })

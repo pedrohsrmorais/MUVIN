@@ -60,3 +60,22 @@ user-select: none;
   z-index: 4;
   width: 20px;
 }
+
+.divConfigOverlay{
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  z-index: 8;
+  width: 300px;
+  height: 300px;
+  background-color: var(--cor-submenu);
+  color: var(--cor-menu);
+  border-style: groove;
+  border-color: black;
+}
+
+#closeConfigOverlay{
+  position: absolute;
+  top: 0%;
+  left: 92%;
+}

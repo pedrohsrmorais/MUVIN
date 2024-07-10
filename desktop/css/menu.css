@@ -183,20 +183,24 @@ button:hover {
 }
 
 .acessibilidadeDiv {
+  user-select: none;
+  overflow: auto;
   z-index: 4;
   color: var(--cor-menu);
-  font-size: 22px;
+  font-size: calc(var(--fonte-menu) - 8px);
   position: fixed;
   display: none;
-  top: 30%;
+  top: 20%;
   left: 20%;
 
+  height: 300px;
+  width: 800px;
   background-color: var(--cor-submenu);
   border-radius: 20px;
 
   grid-template-columns: 1fr 1fr 1fr; 
   gap: 20px;
-  padding: 50px;
+  padding: 10px;
   align-items: center; /* Centraliza verticalmente o conteúdo das colunas */
   justify-items: center; /* Centraliza horizontalmente o conteúdo das colunas */
 }
