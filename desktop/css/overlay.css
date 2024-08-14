@@ -1,7 +1,7 @@
 .overlay {
 
   z-index: 4;
-  position: absolute;
+  position: fixed;
   height: 80%;
   width: 82%;
   left: 10%;
@@ -56,26 +56,69 @@ user-select: none;
   color: var(--cor-menu);
 }
 
-.fontesPlus{
-  z-index: 4;
-  width: 20px;
-}
-
 .divConfigOverlay{
   position: fixed;
   top: 30%;
   left: 30%;
   z-index: 8;
-  width: 300px;
-  height: 300px;
+  width: 110px;
+  height: 200px;
   background-color: var(--cor-submenu);
   color: var(--cor-menu);
   border-style: groove;
   border-color: black;
+  padding: 40px;
+  
 }
 
 #closeConfigOverlay{
   position: absolute;
-  top: 0%;
-  left: 92%;
+  top: -1%;
+  left: 89%;
+}
+
+.ConfigOverlayButton{
+  position: absolute;
+  background-image: url('../../backend/imagens/engine.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px; 
+  height: 30px; 
+  border: none;
+  cursor: pointer;
+  border-radius: 40px; 
+  transition: transform 0.5s; 
+  overflow: visible;
+  top: -5px;
+  left: -5px;
+
+}
+
+.ConfigOverlayButton:hover {
+
+  transform: rotate(90deg);
+}
+
+.fontesPlus, .fontesMinus{
+  background-color: #ffffff;
+  border: none;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 16px;
+  transition: background-color 0.3s ease; 
+  text-align: center;
+  align-items: flex-start;
+}
+
+
+.fontesPlus{
+  transform: translate(0,50px);
+}
+
+.fontesMinus{
+  transform: translate(50px,50px);
 }

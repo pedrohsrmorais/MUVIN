@@ -67,12 +67,13 @@ function overlay(dataId) {
 
         <p>Cor do overlay:</p>
         <input type="color" id="colorOverlay" name="colorOverlay" value="#3c7891">
+
     `;
         divConfigOverlay.style.display = 'none';
         document.body.appendChild(divConfigOverlay);
 
         let buttonConfigOverlay = document.createElement("button")
-        buttonConfigOverlay.textContent = "Configurações";
+        buttonConfigOverlay.className = 'ConfigOverlayButton'
         buttonConfigOverlay.addEventListener("click", openConfigOverlay);
         overlay.appendChild(buttonConfigOverlay)
 
@@ -102,7 +103,7 @@ function overlay(dataId) {
         }
         document.getElementById("closeConfigOverlay").addEventListener("click", closeConfigOverlay);
 
-        // Cria o botão para aumentar a fonte
+        // Cria o botão para diminuir a fonte
         let fontesPlus = document.createElement("button");
         fontesPlus.className = "fontesPlus";
         fontesPlus.textContent = "+";

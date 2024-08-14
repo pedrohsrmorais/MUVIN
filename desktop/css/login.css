@@ -1,4 +1,5 @@
 .loginDiv{
+  z-index: 4;
   position: fixed;
   display: none;
   max-width: 40%;

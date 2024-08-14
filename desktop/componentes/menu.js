@@ -52,7 +52,7 @@ var submenu = `
 
             <button onclick="MenuLoad('contato')" class="subMenuButton">Contato</button>
 
-            <button onclick="" class="subMenuButton">Modo escuro</button>
+
 
             <button onclick="acessibilidade()" class="subMenuButton">Acessibilidade</button>
 
